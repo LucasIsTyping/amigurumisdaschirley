@@ -1,19 +1,5 @@
 [
     {
-        "name": "Hello kitty",
-        "price": "100,00",
-        "description": "teste",
-        "tag": "Novo",
-        "image": "imagens/Hellokitty.webp"
-    },
-    {
-        "name": "Stitch",
-        "price": "100,00",
-        "description": "Disney",
-        "tag": "novo",
-        "image": "imagens/stitch.jpg"
-    },
-    {
         "name": "Emoção - Raiva",
         "price": "120,00",
         "description": "+ Frete",
@@ -33,5 +19,96 @@
         "description": "+ Frete",
         "tag": "Novo",
         "image": "imagens/vergonha.png"
+    },
+    {
+        "name": "Stitch",
+        "price": "80,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/stitch.jpg"
+    },
+    {
+        "name": "Boneca Cacau",
+        "price": "120,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Boneca.jpg"
+    },
+    {
+        "name": "Coelhinho Tom",
+        "price": "80,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Coelho.jpg"
+    },
+    {
+        "name": "Girafa Gigi",
+        "price": "80,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Girafa.jpg"
+    },
+    {
+        "name": "Kirby",
+        "price": "50,00",
+        "description": "cada*\n+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Kirby.jpg"
+    },
+    {
+        "name": "Turma do Harry",
+        "price": "50,00",
+        "description": "cada*\nkit com os três R$ 120,00.\n+ Frete",
+        "tag": "Novo",
+        "image": "imagens/harry potter.jpg"
+    },
+    {
+        "name": "Mike Wazowski",
+        "price": "150,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Mike.jpg"
+    },
+    {
+        "name": "Bichinhos safari",
+        "price": "30,00",
+        "description": "cada*\nkit com os três R$ 160,00.\n+ Frete",
+        "tag": "Novo",
+        "image": "imagens/safari.jpg"
+    },
+    {
+        "name": "Ursinho Marrom",
+        "price": "120,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Urso 1.jpg"
+    },
+    {
+        "name": "Ursinha Dorminhoca",
+        "price": "100,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Urso 2.jpg"
+    },
+    {
+        "name": "Ursinho Théo",
+        "price": "80,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Urso 3.jpg"
+    },
+    {
+        "name": "Grinch",
+        "price": "150,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Grinch.webp"
+    },
+    {
+        "name": "Anjinho",
+        "price": "180,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/Anjinho.jpg"
     }
 ]
