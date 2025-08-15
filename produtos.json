@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Hello kitty",
+        "price": "100,00",
+        "description": "teste",
+        "tag": "Novo",
+        "image": "imagens/Hellokitty.webp"
+    },
+    {
+        "name": "Stitch",
+        "price": "100,00",
+        "description": "Disney",
+        "tag": "novo",
+        "image": "imagens/stitch.jpg"
+    },
+    {
+        "name": "Emoção - Raiva",
+        "price": "120,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/raiva.png"
+    },
+    {
+        "name": "Emoção - Ansiedade",
+        "price": "120,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/ansiedade.png"
+    },
+    {
+        "name": "Emoção - Vergonha",
+        "price": "120,00",
+        "description": "+ Frete",
+        "tag": "Novo",
+        "image": "imagens/vergonha.png"
+    }
+]

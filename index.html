@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amigurumis da Schirley</title>
+  <meta name="theme-color" content="#f472b6" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <span class="brand"><span class="dot" aria-hidden="true"></span> Amigurumis da Schirley</span>
+    <h1>Feitos à mão com muito carinho 💖</h1>
+    <p class="sub">Amigurumis macios, seguros e personalizados. Encomendas para presentes, chá de bebê e decoração.</p>
+  </header>
+
+  <main>
+    <section class="grid" id="grid" aria-live="polite" aria-busy="false"></section>
+  </main>
+
+  <a class="cta" id="ctaWa" href="#" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .6C7.6.6.8 7.3.8 15.6c0 2.7.7 5.2 2 7.5L.6 31.4l8.5-2.2c2.1 1.2 4.6 1.9 7.2 1.9 8.4 0 15.2-6.7 15.2-15S24.4.6 16 .6Zm8.9 21.9c-.4 1.1-2.2 2-3 2.1-.8.1-1.8.1-2.9-.2-3.4-1-7.1-4-8.6-7.2-.6-1.1-1.3-2.9-1.3-4.2s.7-3 1.7-3.5c.4-.2.9-.2 1.2-.2.3 0 .6 0 .8.1.3.1.6 1 .7 1.4.2.5.5 1.2.5 1.3.1.1.1.3 0 .5-.2.5-.6 1.4-.8 1.8-.1.2-.2.4-.4.6-.2.2-.3.4-.1.8.2.4.9 1.5 1.9 2.5 1.3 1.3 2.5 1.7 2.9 1.9.4.2.6.2.9-.1.3-.3 1.1-1.2 1.3-1.6.2-.4.5-.3.8-.2.3.1 1.9.9 2.3 1 .3.1.6.2.6.4.2.1.2 1 .1 1.1Z" fill="currentColor"/></svg>
+    Falar no WhatsApp
+  </a>
+
+  <footer>
+    © <span id="year"></span> Amigurumis da Schirley — Feito com amor em crochê
+  </footer>
+
+  <script>
+    // ===================== IMPORTANTE =====================
+    // Seu programinha Python salva produtos como: name, price, description, image, tag
+    // Versões anteriores do site usavam: title, price, desc, img, tag
+    // O código abaixo NORMALIZA ambos formatos para evitar "undefined".
+
+    const WHATSAPP_NUMBER = "5599999999999"; // troque pelo número real (55+DDD+número)
+    const PLACEHOLDER_IMG = "https://via.placeholder.com/800x800.png?text=Amigurumi";
+
+    function parsePrice(v){
+      if (typeof v === 'number') return v;
+      if (typeof v === 'string'){
+        // aceita "45,90" ou "45.90" e ignora separadores de milhar
+        const num = Number(v.replace(/\./g,'').replace(',','.'));
+        if (!Number.isNaN(num)) return num;
+      }
+      return 0;
+    }
+
+    function normalizeProduct(p){
+      return {
+        title: p.title || p.name || 'Produto sem título',
+        price: parsePrice(p.price),
+        desc: p.desc ?? p.description ?? '',
+        img: p.img || p.image || PLACEHOLDER_IMG,
+        tag: p.tag || ''
+      };
+    }
+
+    function moneyBR(v){
+      return v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function buildWaLink(productTitle){
+      const msg = `Olá! Tenho interesse no amigurumi "${productTitle}" que vi no site. Poderia me enviar mais detalhes?`;
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function productCard(p){
+      const art = document.createElement('article');
+      art.className = 'card';
+      art.innerHTML = `
+        <figure class="thumb">
+          <img loading="lazy" src="${p.img}" alt="${p.title}" />
+          ${p.tag ? `<span class="badge">${p.tag}</span>` : ''}
+        </figure>
+        <div class="info">
+          <div class="title">${p.title}</div>
+          <div class="price">${moneyBR(p.price)}</div>
+          ${p.desc ? `<div class="desc">${p.desc}</div>` : ''}
+        </div>
+        <div class="actions">
+          <button class="btn" data-title="${p.title}">Comprar pelo WhatsApp</button>
+        </div>
+      `;
+      art.querySelector('.btn').addEventListener('click', () => {
+        window.open(buildWaLink(p.title), '_blank');
+      });
+      return art;
+    }
+
+    function render(list){
+      const grid = document.getElementById('grid');
+      grid.setAttribute('aria-busy','true');
+      grid.innerHTML = '';
+      list.forEach(p => grid.appendChild(productCard(p)));
+      grid.setAttribute('aria-busy','false');
+    }
+
+    // Carrega produtos.json
+    fetch('produtos.json', { cache: 'no-store' })
+      .then(res => {
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        return res.json();
+      })
+      .then(data => {
+        // data pode ser um array ou um objeto com chave products
+        const arr = Array.isArray(data) ? data : (Array.isArray(data.products) ? data.products : []);
+        const normalized = arr.map(normalizeProduct);
+        render(normalized);
+      })
+      .catch(err => {
+        console.error('Erro ao carregar produtos.json', err);
+        document.getElementById('grid').innerHTML = `<p>Não foi possível carregar os produtos. Verifique se o arquivo <code>produtos.json</code> está na mesma pasta e válido.</p>`;
+      });
+
+    // CTA WhatsApp geral
+    const cta = document.getElementById('ctaWa');
+    cta.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Vim do site e gostaria de saber mais sobre os amigurumis.')}`;
+
+    // Rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
