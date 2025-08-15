@@ -147,6 +147,7 @@ main{padding: 0 14px 72px;
     object-fit:cover;
     display:block;
     border-radius: 10px;
+    transform: scale(1.5);
 }
 
 .badge{
@@ -232,4 +233,5 @@ a,button{outline-color: var(--pink-400)}
     .thumb{margin-bottom: 0rem;}
 
 }
+
 
