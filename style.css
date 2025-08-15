@@ -26,6 +26,7 @@ body{
     background: radial-gradient(1200px 600px at 10% -10%, var(--pink-100), transparent),
                 radial-gradient(1000px 500px at 110% 10%, #fde2f2, transparent),
                 var(--bg);
+    background-attachment: fixed;
     color:var(--ink);
     line-height:1.5;
 }
@@ -231,3 +232,4 @@ a,button{outline-color: var(--pink-400)}
     .thumb{margin-bottom: 0rem;}
 
 }
+
