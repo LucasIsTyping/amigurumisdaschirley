@@ -29,11 +29,7 @@ Para facilitar a manutenção, foi desenvolvido um script em Python que permite 
 
 ### 1. Adicionar novos amigurumis
 
-Execute o script Python para cadastrar um novo produto:
-
-```bash
-python adicionar_produto.py
-```
+Execute o script Python para cadastrar um novo produto
 
 Preencha as informações solicitadas e o item será automaticamente incluído no arquivo JSON.
 
@@ -41,9 +37,6 @@ Preencha as informações solicitadas e o item será automaticamente incluído n
 
 Basta abrir o arquivo `index.html` no navegador para visualizar a página com os produtos atualizados.
 
-## 📸 Demonstração
-
-*(Adicione aqui imagens ou gifs da página funcionando)*
 
 ## 📌 Possíveis melhorias
 
